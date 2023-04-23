@@ -15,12 +15,9 @@ const emailForm = document.querySelector("#emailForm");
 
 const toast = document.querySelector(".toast");
 
-// const baseURL = "https://innshare.herokuapp.com";
-// const uploadURL = `${baseURL}/api/files`;
-// const emailURL = `${baseURL}/api/files/send`;
-const baseURL = "127.0.0.1:3000/";
-const uploadURL = "#";
-const emailURL = "#"; 
+const baseURL = "https://filesharing-backend-hwn5.onrender.com";
+const uploadURL = `${baseURL}/api/files`;
+const emailURL = `${baseURL}/api/files/send`;
 
 const maxAllowedSize = 100 * 1024 * 1024; //100mb
 
