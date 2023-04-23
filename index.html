@@ -1,55 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
-    <meta charset="UTF-8">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Notes</title>
+    <meta charset="utf-8">
+    <title>Notes App in JavaScript | CodingNepal</title>
     <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 </head>
 
 <body>
-    <h2 class="logo">My Notes</h2>
-    <section class="upload-container">
-        <form action="">
-            <div class="drop-zone">
-                <div class="icon-container">
-                    <img src="/img/file.svg" draggable="false" class="center" alt="File Icon">
-                    <img src="/img/file.svg" draggable="false" class="left" alt="File Icon">
-                    <img src="/img/file.svg" draggable="false" class="right" alt="File Icon">
-                </div>
-                <input type="file" id="fileInput">
-                <div class="title">Drop your Files here or, <span id="browseBtn">browse</span></div>
+    <div class="popup-box">
+        <div class="popup">
+            <div class="content">
+                <header>
+                    <p></p>
+                    <i class="uil uil-times"></i>
+                </header>
+                <form action="#">
+                    <div class="row title">
+                        <label>Title</label>
+                        <input type="text" spellcheck="false">
+                    </div>
+                    <div class="row description">
+                        <label>Description</label>
+                        <textarea spellcheck="false"></textarea>
+                        <section class="upload-container">
+                            <form action="">
+                                <div class="drop-zone">
+                                    <div class="icon-container">
+                                        <img src="/img/file.svg" draggable="false" class="center" alt="File Icon">
+                                        <img src="/img/file.svg" draggable="false" class="left" alt="File Icon">
+                                        <img src="/img/file.svg" draggable="false" class="right" alt="File Icon">
+                                    </div>
+                                    <input type="file" id="fileInput">
+                                    <div class="title">Drop your Files here or, <span id="browseBtn">browse</span></div>
+                                </div>
+                            </form>
+                            <div class="progress-container">
+                                <div class="bg-progress"></div>
+                    
+                                <div class="inner-container">
+                                    <div class="status">Uploading...</div>
+                                    <div class="percent-container">
+                                        <span class="percentage" id="progressPercent">0</span>%
+                                    </div>
+                                    <div class="progress-bar"></div>
+                                </div>
+                    
+                            </div>
+                            <div class="sharing-container">
+                                <p class="expire">Link expires in 24 hrs</p>
+                    
+                    
+                                <div class="input-container">
+                                    <input type="text" id="fileURL" readonly>
+                                    <img src="/img/copy-icon.svg" id="copyURLBtn" alt="copy to clipboard icon">
+                                </div>
+                                
+                            </div>
+                        </section>
+                    </div>
+                    <button class="button"></button>
+                </form>
             </div>
-        </form>
-        <div class="progress-container">
-            <div class="bg-progress"></div>
-
-            <div class="inner-container">
-                <div class="status">Uploading...</div>
-                <div class="percent-container">
-                    <span class="percentage" id="progressPercent">0</span>%
-                </div>
-                <div class="progress-bar"></div>
-            </div>
-
         </div>
-        <div class="sharing-container">
-            <p class="expire">Link expires in 24 hrs</p>
+    </div>
+    <div class="wrapper">
+        <li class="add-box">
+            <div class="icon"><i class="uil uil-plus"></i></div>
+            <p>Add new note</p>
+        </li>
+    </div>
+    <script src="script.js"></script>
 
-
-            <div class="input-container">
-                <input type="text" id="fileURL" readonly>
-                <img src="/img/copy-icon.svg" id="copyURLBtn" alt="copy to clipboard icon">
-            </div>
-            
-        </div>
-    </section>
-    <div class="image-vector"></div>
-    <div class="toast">Sample message</div>
-
-    <script src="index.js"></script>
 </body>
 
 </html>
