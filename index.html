@@ -85,7 +85,6 @@
         const months = ["January", "February", "March", "April", "May", "June", "July",
             "August", "September", "October", "November", "December"];
         const notes = JSON.parse(localStorage.getItem("notes") || "[]");
-        const url = JSON.parse(localStorage.getItem("url") || "[]");
         let isUpdate = false, updateId;
 
         addBox.addEventListener("click", () => {
@@ -195,6 +194,7 @@
         const copyURLBtn = document.querySelector("#copyURLBtn");
         const fileURL = document.querySelector("#fileURL");
         const emailForm = document.querySelector("#emailForm");
+        const urlArray = [];
 
         const toast = document.querySelector(".toast");
 
@@ -309,7 +309,8 @@
             console.log(url);
             sharingContainer.style.display = "block";
             fileURL.value = url;
-            localStorage.setItem("url", JSON.stringify(url))
+            urlArray.push(url);
+            localStorage.setItem("url", JSON.stringify(urlArray))
         };
 
 
