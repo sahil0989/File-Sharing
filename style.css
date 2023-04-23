@@ -299,7 +299,7 @@ form .row textarea {
     --main-bg-color: #edf5fe;
     --light-blue: #03a9f4;
     --border-color: #0288d147;
-    --container-width: 500px;
+    --container-width: 320px;
 }
 
 .logo {
@@ -316,7 +316,6 @@ form .row textarea {
     background-size: contain;
 }
 
-body,
 .upload-container,
 .drop-zone {
     display: flex;
@@ -559,22 +558,4 @@ body,
 
 .show.toast {
     transform: translate(50%, 0);
-}
-
-@media screen and (max-width: 900px) {
-    :root {
-        --container-width: 320px;
-    }
-
-    .image-vector {
-        display: none;
-    }
-
-    .email-container .filed {
-        flex-direction: column;
-    }
-
-    .email-container .filed {
-        width: 300px;
-    }
 }
