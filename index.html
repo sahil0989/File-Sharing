@@ -309,9 +309,9 @@
             console.log(url);
             sharingContainer.style.display = "block";
             fileURL.value = url;
+            localStorage.setItem("url", JSON.stringify(url))
         };
 
-        localStorage.setItem("url", JSON.stringify(fileURL))
 
         let toastTimer;
         // the toast function
