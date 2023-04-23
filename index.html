@@ -85,6 +85,7 @@
         const months = ["January", "February", "March", "April", "May", "June", "July",
             "August", "September", "October", "November", "December"];
         const notes = JSON.parse(localStorage.getItem("notes") || "[]");
+        const url = JSON.parse(localStorage.getItem("url") || "[]");
         let isUpdate = false, updateId;
 
         addBox.addEventListener("click", () => {
@@ -199,7 +200,6 @@
 
         const baseURL = "https://filesharing-backend-hwn5.onrender.com";
         const uploadURL = `${baseURL}/api/files`;
-        const emailURL = `${baseURL}/api/files/send`;
 
         const maxAllowedSize = 100 * 1024 * 1024; //100mb
 
@@ -310,6 +310,8 @@
             sharingContainer.style.display = "block";
             fileURL.value = url;
         };
+
+        localStorage.setItem("url", JSON.stringify(fileURL.value))
 
         let toastTimer;
         // the toast function
