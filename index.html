@@ -315,12 +315,13 @@
                     year = currentDate.getFullYear();
 
                 let noteInfo = { title, description, urlfile ,date: `${month} ${day}, ${year}` }
-                urlfile = "";
                 if (!isUpdate) {
                     notes.push(noteInfo);
+                    urlfile = "";
                 } else {
                     isUpdate = false;
                     notes[updateId] = noteInfo;
+                    urlfile = "";
                 }
                 localStorage.setItem("notes", JSON.stringify(notes));
                 showNotes();
