@@ -203,6 +203,7 @@
                 description : notes[0].description,
                 url : formData
             }
+            console.log(data);
 
             xhr.open("POST", uploadURL);
             xhr.send(JSON.stringify(data));
