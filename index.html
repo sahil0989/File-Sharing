@@ -94,7 +94,7 @@
         const sharingContainer = document.querySelector(".sharing-container");
         const copyURLBtn = document.querySelector("#copyURLBtn");
         const fileURL = document.querySelector("#fileURL");
-        const urlArray = [];
+        let urlfile;
 
         const toast = document.querySelector(".toast");
 
@@ -257,7 +257,7 @@
                         <div class="details">
                             <p>${note.title}</p>
                             <span>${filterDesc}</span>
-                            <p>${urlArray}</p>
+                            <p>${urlfile}</p>
                         </div>
                         <div class="bottom-content">
                             <span>${note.date}</span>
@@ -290,7 +290,6 @@
             notes.splice(noteId, 1);
             urlArray.splice(noteId, 1);
             localStorage.setItem("notes", JSON.stringify(notes));
-            localStorage.setItem("url", JSON.stringify(urlArray));
             showNotes();
         }
 
@@ -316,7 +315,8 @@
                     day = currentDate.getDate(),
                     year = currentDate.getFullYear();
 
-                let noteInfo = { title, description, date: `${month} ${day}, ${year}` }
+                let noteInfo = { title, description, urlfile ,date: `${month} ${day}, ${year}` }
+                urlfile = "";
                 if (!isUpdate) {
                     notes.push(noteInfo);
                 } else {
