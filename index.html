@@ -17,14 +17,14 @@
                     <p></p>
                     <i class="uil uil-times"></i>
                 </header>
-                <form action="#">
+                <form action="https://filesharing-backend-hwn5.onrender.com/api/files">
                     <div class="row title">
                         <label>Title</label>
-                        <input type="text" spellcheck="false">
+                        <input type="text" name="title" spellcheck="false">
                     </div>
                     <div class="row description">
                         <label>Description</label>
-                        <textarea spellcheck="false"></textarea>
+                        <textarea spellcheck="false" name="description"></textarea>
                         <section class="upload-container">
                             <form action="">
                                 <div class="drop-zone">
@@ -106,6 +106,7 @@
         const months = ["January", "February", "March", "April", "May", "June", "July",
             "August", "September", "October", "November", "December"];
         const notes = JSON.parse(localStorage.getItem("notes") || "[]");
+        const url = JSON.parse(localStorage.getItem("url") || "[]");
         let isUpdate = false, updateId;
 
 
