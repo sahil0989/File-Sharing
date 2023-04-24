@@ -26,17 +26,15 @@
                         <label>Description</label>
                         <textarea spellcheck="false" name="description"></textarea>
                         <section class="upload-container">
-                            <form action="">
-                                <div class="drop-zone">
-                                    <div class="icon-container">
-                                        <img src="/img/file.svg" draggable="false" class="center" alt="File Icon">
-                                        <img src="/img/file.svg" draggable="false" class="left" alt="File Icon">
-                                        <img src="/img/file.svg" draggable="false" class="right" alt="File Icon">
-                                    </div>
-                                    <input type="file" id="fileInput">
-                                    <div class="title">Drop your Files here or, <span id="browseBtn">browse</span></div>
+                            <div class="drop-zone">
+                                <div class="icon-container">
+                                    <img src="/img/file.svg" draggable="false" class="center" alt="File Icon">
+                                    <img src="/img/file.svg" draggable="false" class="left" alt="File Icon">
+                                    <img src="/img/file.svg" draggable="false" class="right" alt="File Icon">
                                 </div>
-                            </form>
+                                <input type="file" id="fileInput">
+                                <div class="title">Drop your Files here or, <span id="browseBtn">browse</span></div>
+                            </div>
                             <div class="progress-container">
                                 <div class="bg-progress"></div>
 
@@ -200,10 +198,40 @@
                     onFileUploadSuccess(xhr.responseText);
                 }
             };
+            let data = {
+                title : notes[0].title,
+                description : notes[0].description,
+                url : formData
+            }
 
             xhr.open("POST", uploadURL);
-            xhr.send(formData);
+            xhr.send(JSON.stringify(data));
         };
+
+        // const sendHttpRequest = (method, url) => {
+        //     const promise = new Promise((resolve, reject) => {
+
+        //         const xhr = new XMLHttpRequest();
+        //         xhr.open(method, url);
+        //         xhr.responseType = 'json';
+
+        //         xhr.onload = () => {
+        //             const data = xhr.response;
+        //             console.log(data);
+        //         };
+
+        //         xhr.send(JSON.stringify(data));
+        //     }).then(responseData => {
+        //         console.log(responseData);
+        //     })
+        // };
+
+        // const sendData = () => {
+        //     sendHttpRequest("POST", 'http:/api/register', {
+        //         email : '',
+        //         password : '',
+        //     });
+        // }
 
         const onFileUploadSuccess = (res) => {
             fileInput.value = ""; // reset the input
@@ -315,7 +343,7 @@
                     day = currentDate.getDate(),
                     year = currentDate.getFullYear();
 
-                let noteInfo = { title, description, urlfile ,date: `${month} ${day}, ${year}` }
+                let noteInfo = { title, description, date: `${month} ${day}, ${year}` }
                 if (!isUpdate) {
                     notes.push(noteInfo);
                     urlfile = "";
